@@ -4,6 +4,7 @@ import 'package:timesheet_calculator/Screens/Login.dart';
 
 void main() => runApp(MaterialApp(
       home: SplashScreen(),
+      darkTheme: ThemeData.dark(),
       debugShowCheckedModeBanner: false,
     ));
 
@@ -33,10 +34,9 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    Future.delayed(Duration(seconds: 3)).then((_) {
+    Future.delayed(Duration(seconds: 2)).then((_) {
       Navigator.of(context)
           .pushReplacement(MaterialPageRoute(builder: (context) => Login()));
     });
   }
-
 }

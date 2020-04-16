@@ -23,7 +23,6 @@ class _LoginState extends State<Login> {
   Widget build(BuildContext context) {
     ScreenUtil.init(context, width: 750, height: 1334, allowFontScaling: true);
     return new Scaffold(
-      backgroundColor: Colors.white,
       resizeToAvoidBottomPadding: true,
       body: Stack(
         fit: StackFit.expand,
@@ -64,22 +63,10 @@ class _LoginState extends State<Login> {
                   SizedBox(
                     height: ScreenUtil().setHeight(150),
                   ),
-                  Container(
-                    width: ScreenUtil().setWidth(650),
-                    height: ScreenUtil().setHeight(580),
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(8.0),
-                        boxShadow: [
-                          BoxShadow(
-                              color: Colors.black12,
-                              offset: Offset(0.0, 15.0),
-                              blurRadius: 15.0),
-                          BoxShadow(
-                              color: Colors.black12,
-                              offset: Offset(0.0, -10.0),
-                              blurRadius: 10.0),
-                        ]),
+                  Card(
+                    elevation: 24.0,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(24.0)),
                     child: Padding(
                       padding:
                           EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
@@ -124,19 +111,23 @@ class _LoginState extends State<Login> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: <Widget>[
-                              Material(
-                                color: Colors.transparent,
-                                child: InkWell(
-                                  onTap: () {}, // needed
-                                  child: Text(
-                                    "Esqueceu sua senha?",
-                                    style: TextStyle(
-                                        color: Colors.blue,
-                                        fontFamily: "Poppins-Medium",
-                                        fontSize: ScreenUtil().setSp(26)),
+                              Padding(
+                                padding:
+                                    EdgeInsets.only(left: 16.0, bottom: 16.0),
+                                child: Material(
+                                  color: Colors.transparent,
+                                  child: InkWell(
+                                    onTap: () {}, // needed
+                                    child: Text(
+                                      "Esqueceu sua senha?",
+                                      style: TextStyle(
+                                          color: Colors.blue,
+                                          fontFamily: "Poppins-Medium",
+                                          fontSize: ScreenUtil().setSp(26)),
+                                    ),
                                   ),
                                 ),
-                              )
+                              ),
                             ],
                           ),
                         ],
@@ -145,9 +136,11 @@ class _LoginState extends State<Login> {
                   ),
                   SizedBox(height: ScreenUtil().setHeight(40)),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      InkWell(
+                      RawMaterialButton(
+                        shape: CircleBorder(),
+                        onPressed: () {},
                         child: Container(
                           width: ScreenUtil().setWidth(650),
                           height: ScreenUtil().setHeight(100),
@@ -156,7 +149,7 @@ class _LoginState extends State<Login> {
                                 Color(0xFF17ead9),
                                 Color(0xFF6078ea)
                               ]),
-                              borderRadius: BorderRadius.circular(6.0),
+                              borderRadius: BorderRadius.circular(24.0),
                               boxShadow: [
                                 BoxShadow(
                                     color: Color(0xFF6078ea).withOpacity(.3),
@@ -165,8 +158,10 @@ class _LoginState extends State<Login> {
                               ]),
                           child: Material(
                             color: Colors.transparent,
-                            child: InkWell(
-                              onTap: () {},
+                            child: RawMaterialButton(
+                              shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(24.0)),
+                              onPressed: () {},
                               child: Center(
                                 child: Text("login".toUpperCase(),
                                     style: TextStyle(
